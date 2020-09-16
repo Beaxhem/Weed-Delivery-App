@@ -7,23 +7,61 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88334F6D251160B5006659C5 /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88334F6C251160B5006659C5 /* CartButton.swift */; };
+		884D0E03251233A6000FA2D8 /* ProductDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D0E02251233A6000FA2D8 /* ProductDetails.swift */; };
+		884D0E052512359D000FA2D8 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884D0E042512359D000FA2D8 /* CartView.swift */; };
+		8855D92B2510DF4F00185129 /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8855D92A2510DF4F00185129 /* Tabs.swift */; };
+		8855D92D2510E71200185129 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8855D92C2510E71200185129 /* ViewRouter.swift */; };
 		88664E68250ED3450028B9D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88664E67250ED3450028B9D2 /* AppDelegate.swift */; };
 		88664E6A250ED3450028B9D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88664E69250ED3450028B9D2 /* SceneDelegate.swift */; };
-		88664E6C250ED3450028B9D2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88664E6B250ED3450028B9D2 /* ContentView.swift */; };
 		88664E6E250ED34A0028B9D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88664E6D250ED34A0028B9D2 /* Assets.xcassets */; };
 		88664E71250ED34A0028B9D2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88664E70250ED34A0028B9D2 /* Preview Assets.xcassets */; };
 		88664E74250ED34A0028B9D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88664E72250ED34A0028B9D2 /* LaunchScreen.storyboard */; };
+		88664E7C250ED3B70028B9D2 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88664E7B250ED3B70028B9D2 /* Test.swift */; };
+		886CCF8A25128D2100319252 /* addToCartSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 886CCF8925128D2100319252 /* addToCartSound.mp3 */; };
+		886CCF8C2512954500319252 /* CartItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CCF8B2512954500319252 /* CartItemView.swift */; };
+		88878CC525100D6000BB98B9 /* CompanyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88878CC425100D6000BB98B9 /* CompanyDetailView.swift */; };
+		88878CC72510141100BB98B9 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88878CC62510141100BB98B9 /* Product.swift */; };
+		88878CCA2510156B00BB98B9 /* ProductsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88878CC92510156B00BB98B9 /* ProductsListView.swift */; };
+		88878CCC2510158600BB98B9 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88878CCB2510158600BB98B9 /* ProductView.swift */; };
+		88878CCF25101BA200BB98B9 /* TabBarSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88878CCE25101BA200BB98B9 /* TabBarSpacer.swift */; };
+		888FE8AF250FC16500FD12B7 /* CompaniesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888FE8AE250FC16500FD12B7 /* CompaniesView.swift */; };
+		888FE8B2250FC24900FD12B7 /* CompanyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888FE8B1250FC24900FD12B7 /* CompanyRow.swift */; };
+		888FE8B4250FC25A00FD12B7 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888FE8B3250FC25A00FD12B7 /* DatabaseManager.swift */; };
+		888FE8B6250FC30C00FD12B7 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888FE8B5250FC30C00FD12B7 /* Company.swift */; };
+		888FE8B8250FDD9E00FD12B7 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888FE8B7250FDD9E00FD12B7 /* TabBar.swift */; };
+		D8C1EE69539B9BF297986C5A /* Pods_Weed_delivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8C13D8F9534DDE053467548 /* Pods_Weed_delivery.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0AA7C76DB2425112632EEF6F /* Pods-Weed delivery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weed delivery.release.xcconfig"; path = "Target Support Files/Pods-Weed delivery/Pods-Weed delivery.release.xcconfig"; sourceTree = "<group>"; };
+		3525F538ABAA2B9A9E3F39A3 /* Pods-Weed delivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weed delivery.debug.xcconfig"; path = "Target Support Files/Pods-Weed delivery/Pods-Weed delivery.debug.xcconfig"; sourceTree = "<group>"; };
+		88334F6C251160B5006659C5 /* CartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
+		884D0E02251233A6000FA2D8 /* ProductDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetails.swift; sourceTree = "<group>"; };
+		884D0E042512359D000FA2D8 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		8855D92A2510DF4F00185129 /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
+		8855D92C2510E71200185129 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		88664E64250ED3450028B9D2 /* Weed delivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weed delivery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88664E67250ED3450028B9D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88664E69250ED3450028B9D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		88664E6B250ED3450028B9D2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		88664E6D250ED34A0028B9D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88664E70250ED34A0028B9D2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		88664E73250ED34A0028B9D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88664E75250ED34A0028B9D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88664E7B250ED3B70028B9D2 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		886CCF8925128D2100319252 /* addToCartSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = addToCartSound.mp3; path = ../../../../../../Downloads/addToCartSound.mp3; sourceTree = "<group>"; };
+		886CCF8B2512954500319252 /* CartItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemView.swift; sourceTree = "<group>"; };
+		88878CC425100D6000BB98B9 /* CompanyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailView.swift; sourceTree = "<group>"; };
+		88878CC62510141100BB98B9 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		88878CC92510156B00BB98B9 /* ProductsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListView.swift; sourceTree = "<group>"; };
+		88878CCB2510158600BB98B9 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
+		88878CCE25101BA200BB98B9 /* TabBarSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarSpacer.swift; sourceTree = "<group>"; };
+		888FE8AE250FC16500FD12B7 /* CompaniesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesView.swift; sourceTree = "<group>"; };
+		888FE8B1250FC24900FD12B7 /* CompanyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyRow.swift; sourceTree = "<group>"; };
+		888FE8B3250FC25A00FD12B7 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		888FE8B5250FC30C00FD12B7 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		888FE8B7250FDD9E00FD12B7 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		C8C13D8F9534DDE053467548 /* Pods_Weed_delivery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weed_delivery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +69,55 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8C1EE69539B9BF297986C5A /* Pods_Weed_delivery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BBEA4F0B3DF30F8DEE5CFCA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3525F538ABAA2B9A9E3F39A3 /* Pods-Weed delivery.debug.xcconfig */,
+				0AA7C76DB2425112632EEF6F /* Pods-Weed delivery.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		46654DAD6C8F8C2B43B91A68 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C8C13D8F9534DDE053467548 /* Pods_Weed_delivery.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		88334F6B251160A1006659C5 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				88334F6C251160B5006659C5 /* CartButton.swift */,
+				884D0E042512359D000FA2D8 /* CartView.swift */,
+				886CCF8B2512954500319252 /* CartItemView.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		8855D9292510DF4200185129 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8855D92A2510DF4F00185129 /* Tabs.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		88664E5B250ED3450028B9D2 = {
 			isa = PBXGroup;
 			children = (
 				88664E66250ED3450028B9D2 /* Weed delivery */,
 				88664E65250ED3450028B9D2 /* Products */,
+				2BBEA4F0B3DF30F8DEE5CFCA /* Pods */,
+				46654DAD6C8F8C2B43B91A68 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,13 +132,17 @@
 		88664E66250ED3450028B9D2 /* Weed delivery */ = {
 			isa = PBXGroup;
 			children = (
+				8855D9292510DF4200185129 /* Protocols */,
+				888FE8AB250FC04400FD12B7 /* Resources */,
+				888FE8AA250FC03C00FD12B7 /* Models */,
+				888FE8A9250FC03500FD12B7 /* Views */,
 				88664E67250ED3450028B9D2 /* AppDelegate.swift */,
 				88664E69250ED3450028B9D2 /* SceneDelegate.swift */,
-				88664E6B250ED3450028B9D2 /* ContentView.swift */,
 				88664E6D250ED34A0028B9D2 /* Assets.xcassets */,
 				88664E72250ED34A0028B9D2 /* LaunchScreen.storyboard */,
 				88664E75250ED34A0028B9D2 /* Info.plist */,
 				88664E6F250ED34A0028B9D2 /* Preview Content */,
+				88664E7B250ED3B70028B9D2 /* Test.swift */,
 			);
 			path = "Weed delivery";
 			sourceTree = "<group>";
@@ -75,6 +155,73 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		886CCF8825128A3E00319252 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				886CCF8925128D2100319252 /* addToCartSound.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		88878CC82510153C00BB98B9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				88878CC92510156B00BB98B9 /* ProductsListView.swift */,
+				88878CCB2510158600BB98B9 /* ProductView.swift */,
+				884D0E02251233A6000FA2D8 /* ProductDetails.swift */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		88878CCD25101B9100BB98B9 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				888FE8B7250FDD9E00FD12B7 /* TabBar.swift */,
+				88878CCE25101BA200BB98B9 /* TabBarSpacer.swift */,
+				8855D92C2510E71200185129 /* ViewRouter.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		888FE8A9250FC03500FD12B7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				88334F6B251160A1006659C5 /* Cart */,
+				88878CCD25101B9100BB98B9 /* TabBar */,
+				88878CC82510153C00BB98B9 /* Products */,
+				888FE8B0250FC22E00FD12B7 /* Companies */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		888FE8AA250FC03C00FD12B7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				888FE8B5250FC30C00FD12B7 /* Company.swift */,
+				88878CC62510141100BB98B9 /* Product.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		888FE8AB250FC04400FD12B7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				886CCF8825128A3E00319252 /* Sounds */,
+				888FE8B3250FC25A00FD12B7 /* DatabaseManager.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		888FE8B0250FC22E00FD12B7 /* Companies */ = {
+			isa = PBXGroup;
+			children = (
+				888FE8AE250FC16500FD12B7 /* CompaniesView.swift */,
+				888FE8B1250FC24900FD12B7 /* CompanyRow.swift */,
+				88878CC425100D6000BB98B9 /* CompanyDetailView.swift */,
+			);
+			path = Companies;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -82,6 +229,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 88664E78250ED34A0028B9D2 /* Build configuration list for PBXNativeTarget "Weed delivery" */;
 			buildPhases = (
+				A08951E46DBC2A053D0E4F43 /* [CP] Check Pods Manifest.lock */,
 				88664E60250ED3450028B9D2 /* Sources */,
 				88664E61250ED3450028B9D2 /* Frameworks */,
 				88664E62250ED3450028B9D2 /* Resources */,
@@ -136,19 +284,61 @@
 				88664E74250ED34A0028B9D2 /* LaunchScreen.storyboard in Resources */,
 				88664E71250ED34A0028B9D2 /* Preview Assets.xcassets in Resources */,
 				88664E6E250ED34A0028B9D2 /* Assets.xcassets in Resources */,
+				886CCF8A25128D2100319252 /* addToCartSound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A08951E46DBC2A053D0E4F43 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Weed delivery-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		88664E60250ED3450028B9D2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				884D0E052512359D000FA2D8 /* CartView.swift in Sources */,
+				8855D92D2510E71200185129 /* ViewRouter.swift in Sources */,
+				88334F6D251160B5006659C5 /* CartButton.swift in Sources */,
+				88878CCA2510156B00BB98B9 /* ProductsListView.swift in Sources */,
+				888FE8B8250FDD9E00FD12B7 /* TabBar.swift in Sources */,
+				888FE8B2250FC24900FD12B7 /* CompanyRow.swift in Sources */,
 				88664E68250ED3450028B9D2 /* AppDelegate.swift in Sources */,
+				88664E7C250ED3B70028B9D2 /* Test.swift in Sources */,
+				888FE8AF250FC16500FD12B7 /* CompaniesView.swift in Sources */,
 				88664E6A250ED3450028B9D2 /* SceneDelegate.swift in Sources */,
-				88664E6C250ED3450028B9D2 /* ContentView.swift in Sources */,
+				884D0E03251233A6000FA2D8 /* ProductDetails.swift in Sources */,
+				8855D92B2510DF4F00185129 /* Tabs.swift in Sources */,
+				888FE8B4250FC25A00FD12B7 /* DatabaseManager.swift in Sources */,
+				88878CCC2510158600BB98B9 /* ProductView.swift in Sources */,
+				88878CC72510141100BB98B9 /* Product.swift in Sources */,
+				88878CC525100D6000BB98B9 /* CompanyDetailView.swift in Sources */,
+				888FE8B6250FC30C00FD12B7 /* Company.swift in Sources */,
+				88878CCF25101BA200BB98B9 /* TabBarSpacer.swift in Sources */,
+				886CCF8C2512954500319252 /* CartItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +472,7 @@
 		};
 		88664E79250ED34A0028B9D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3525F538ABAA2B9A9E3F39A3 /* Pods-Weed delivery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +493,7 @@
 		};
 		88664E7A250ED34A0028B9D2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AA7C76DB2425112632EEF6F /* Pods-Weed delivery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
