@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CartView: View {
-    @State var cart: [Product] = []
+    @State var cart: [CartItem] = []
     
     @Environment(\.presentationMode) var presentationMode
     

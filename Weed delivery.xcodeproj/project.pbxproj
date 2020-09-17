@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -31,6 +31,8 @@
 		888FE8B4250FC25A00FD12B7 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888FE8B3250FC25A00FD12B7 /* DatabaseManager.swift */; };
 		888FE8B6250FC30C00FD12B7 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888FE8B5250FC30C00FD12B7 /* Company.swift */; };
 		888FE8B8250FDD9E00FD12B7 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888FE8B7250FDD9E00FD12B7 /* TabBar.swift */; };
+		88E27AAE2514074100FED713 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E27AAD2514074100FED713 /* CartItem.swift */; };
+		88E27AB025140FDA00FED713 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E27AAF25140FDA00FED713 /* Rating.swift */; };
 		D8C1EE69539B9BF297986C5A /* Pods_Weed_delivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8C13D8F9534DDE053467548 /* Pods_Weed_delivery.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +65,8 @@
 		888FE8B3250FC25A00FD12B7 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		888FE8B5250FC30C00FD12B7 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		888FE8B7250FDD9E00FD12B7 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		88E27AAD2514074100FED713 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
+		88E27AAF25140FDA00FED713 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		C8C13D8F9534DDE053467548 /* Pods_Weed_delivery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weed_delivery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -202,6 +206,8 @@
 			children = (
 				888FE8B5250FC30C00FD12B7 /* Company.swift */,
 				88878CC62510141100BB98B9 /* Product.swift */,
+				88E27AAD2514074100FED713 /* CartItem.swift */,
+				88E27AAF25140FDA00FED713 /* Rating.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -354,8 +360,10 @@
 				884D0E03251233A6000FA2D8 /* ProductDetails.swift in Sources */,
 				8855D92B2510DF4F00185129 /* Tabs.swift in Sources */,
 				888FE8B4250FC25A00FD12B7 /* DatabaseManager.swift in Sources */,
+				88E27AAE2514074100FED713 /* CartItem.swift in Sources */,
 				88878CCC2510158600BB98B9 /* ProductView.swift in Sources */,
 				88878CC72510141100BB98B9 /* Product.swift in Sources */,
+				88E27AB025140FDA00FED713 /* Rating.swift in Sources */,
 				88878CC525100D6000BB98B9 /* CompanyDetailView.swift in Sources */,
 				888FE8B6250FC30C00FD12B7 /* Company.swift in Sources */,
 				88878CCF25101BA200BB98B9 /* TabBarSpacer.swift in Sources */,

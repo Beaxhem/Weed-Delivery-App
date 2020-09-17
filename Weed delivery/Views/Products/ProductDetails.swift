@@ -100,7 +100,8 @@ struct ProductDetails: View {
         
         DispatchQueue.main.async {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
-             appDelegate.cart.append(self.product)
+            let cartItem = CartItem(id: 1, product: self.product)
+            appDelegate.cart.append(cartItem)
             
             self.isShowing.toggle()
             
@@ -111,18 +112,11 @@ struct ProductDetails: View {
                 self.isShowing.toggle()
                 group.leave()
             }
-            
-            
-            
         }
         
         group.notify(queue: .main) {
             self.presentationMode.wrappedValue.dismiss()
         }
-    }
-    
-    func showHUD() {
-        
     }
     
     func playSound() {
@@ -134,11 +128,7 @@ struct ProductDetails: View {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
 
-            /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
-
-            /* iOS 10 and earlier require the following line:
-            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
 
             guard let player = player else { return }
 

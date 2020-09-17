@@ -14,9 +14,12 @@ struct TabBar: View {
     
     var body: some View {
         GeometryReader { geometry in
-            ZStack {
+            VStack {
+                
                 self.currentView
-                    .frame(height: geometry.size.height - geometry.safeAreaInsets.bottom)
+                    
+                    .frame(height: geometry.size.height - geometry.safeAreaInsets.bottom - 50)
+                    
                 
                 HStack {
                     Button(
@@ -53,7 +56,7 @@ struct TabBar: View {
                 .cornerRadius(10)
                 .shadow(radius: 5)
                 .frame(width: geometry.size.width - 20)
-                .position( x: geometry.size.width / 2, y: geometry.size.height - 40)
+//                .position( x: geometry.size.width / 2, y: geometry.size.height - 40)
             }
             .onAppear(perform: self.initTabBar)
             

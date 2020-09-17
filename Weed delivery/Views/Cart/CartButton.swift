@@ -31,7 +31,7 @@ struct CartButton: View {
         var total: Float = 0
         
         for item in cart {
-            total += item.price
+            total += item.product.price * Float(item.count)
         }
         
         return total

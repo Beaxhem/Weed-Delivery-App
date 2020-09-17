@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CartItemView: View {
-    var item: Product
+    var item: CartItem
     
     var body: some View {
         HStack {
@@ -19,10 +19,10 @@ struct CartItemView: View {
             
             VStack(alignment: .leading) {
                 HStack {
-                    Text(item.name)
+                    Text(item.product.name)
                         .font(.headline)
                     
-                    Text(String(item.price) + "$")
+                    Text(String(item.product.price * Float(item.count)) + "$")
                         .font(.system(size: 20, weight: .bold, design: .default))
                 }
                 
@@ -37,7 +37,7 @@ struct CartItemView: View {
 struct CartItemView_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            CartItemView(item: Product(id: 1, name: "McDonalds", price: 99.9))
+            CartItemView(item: CartItem(id: 1, product: Product(id: 1, name: "McDonalds", price: 99.9)))
         }
         
     }
