@@ -10,7 +10,10 @@ import SwiftUI
 
 struct CompanyDetailView: View {
     @Environment(\.presentationMode) var presentationMode
-    @State var isPresented = false
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    @State var productDetailsPresented = false
+    @State var alertPresented = false
     
     var company: Company
     
@@ -24,7 +27,7 @@ struct CompanyDetailView: View {
                         .frame(width: 30, height: 30)
                         .offset(x: -20, y: 20)
                         .onTapGesture {
-                           self.presentationMode.wrappedValue.dismiss()
+                            self.close()
                         }
                     
                     ScrollView {
@@ -57,6 +60,15 @@ struct CompanyDetailView: View {
                     .navigationBarTitle("", displayMode: .inline)
                     .navigationBarHidden(true)
                     .frame(height: geometry.size.height - geometry.safeAreaInsets.bottom)
+                    .alert(isPresented: self.$alertPresented) {
+                        Alert(
+                            title: Text("Are you sure you want to leave?"),
+                            primaryButton: .default(Text("Yes"), action: {
+                                self.leaveView()
+                            }), secondaryButton: .default(Text("Leave here")
+                        ))
+                    }
+                    
                 }
                 
                 CartButton()
@@ -69,13 +81,30 @@ struct CompanyDetailView: View {
                     .shadow(radius: 5)
                     .position( x: geometry.size.width / 2, y: geometry.size.height - 45)
                     .onTapGesture {
-                            self.isPresented = true
+                            self.productDetailsPresented = true
                         }
-                    .sheet(isPresented: self.$isPresented) {
+                    .sheet(isPresented: self.$productDetailsPresented) {
                             CartView()
                         }
             }
         }
+    }
+    
+    func leaveView() {
+        appDelegate.cart = [] 
+        self.presentationMode.wrappedValue.dismiss()
+    }
+    
+    func close() {
+        
+        let cart = appDelegate.cart
+
+        if cart.count > 0 {
+            self.alertPresented = true
+        } else {
+            self.presentationMode.wrappedValue.dismiss()
+        }
+        
     }
 }
 

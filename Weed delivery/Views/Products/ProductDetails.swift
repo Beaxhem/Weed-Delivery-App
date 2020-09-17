@@ -8,27 +8,90 @@
 
 import SwiftUI
 import AVFoundation
+import JGProgressHUD
 
 var player: AVAudioPlayer?
 
+class ProgressHUDController: UIViewController {
+    let hud = JGProgressHUD(style: .dark)
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.dismiss()
+    }
+    
+    func show(text: String) {
+        hud.textLabel.text = text
+        hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+        hud.show(in: self.view)
+    }
+    
+    func dismiss() {
+        hud.dismiss()
+    }
+}
+
+struct ProgressHUD: UIViewControllerRepresentable {
+    func makeUIViewController(context: UIViewControllerRepresentableContext<ProgressHUD>) -> ProgressHUDController {
+        ProgressHUDController()
+    }
+    
+    func updateUIViewController(_ uiViewController: ProgressHUDController, context: UIViewControllerRepresentableContext<ProgressHUD>) {
+        uiViewController.show(text: "Added to cart")
+    }
+    
+    typealias UIViewControllerType = ProgressHUDController
+}
+
+public struct ProgressHUDView<Content>: View where Content: View {
+    private var isShowing: Binding<Bool>
+    private var content: () -> Content
+    
+    public init(isShowing: Binding<Bool>, content: @escaping () -> Content) {
+        self.isShowing = isShowing
+        self.content = content
+    }
+    
+    public var body: some View {
+        ZStack(alignment: .center) {
+            if (!self.isShowing.wrappedValue) {
+                self.content()
+            } else {
+                self.content()
+                    .disabled(true)
+                    .blur(radius: 3)
+                
+                ProgressHUD()
+            }
+        }
+    }
+}
 struct ProductDetails: View {
     var product: Product
     
-
-    
     @Environment(\.presentationMode) var presentationMode
     
+    @State var isShowing = false
+    
     var body: some View {
-        Button(action: {
-            self.addToCart()
-        }, label: {
-            Text("Add to cart")
-        })
-        .padding()
-        .background(Color.blue)
-        .foregroundColor(.white)
-        .font(.headline)
-        .cornerRadius(10)
+        ProgressHUDView(isShowing: self.$isShowing) {
+            Button(action: {
+                self.addToCart()
+            }, label: {
+                Text("Add to cart")
+            })
+            .padding()
+            .background(Color.blue)
+            .foregroundColor(.white)
+            .font(.headline)
+            .cornerRadius(10)
+        }
+        
     }
     
     func addToCart() {
@@ -39,14 +102,27 @@ struct ProductDetails: View {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
              appDelegate.cart.append(self.product)
             
+            self.isShowing.toggle()
+            
             self.playSound()
             
-            group.leave()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000)) {
+                self.isShowing.toggle()
+                group.leave()
+            }
+            
+            
+            
         }
         
         group.notify(queue: .main) {
             self.presentationMode.wrappedValue.dismiss()
         }
+    }
+    
+    func showHUD() {
+        
     }
     
     func playSound() {

@@ -20,6 +20,7 @@
 		88664E7C250ED3B70028B9D2 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88664E7B250ED3B70028B9D2 /* Test.swift */; };
 		886CCF8A25128D2100319252 /* addToCartSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 886CCF8925128D2100319252 /* addToCartSound.mp3 */; };
 		886CCF8C2512954500319252 /* CartItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CCF8B2512954500319252 /* CartItemView.swift */; };
+		886CCF8E2512A47A00319252 /* NonEmptyCartAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CCF8D2512A47A00319252 /* NonEmptyCartAlert.swift */; };
 		88878CC525100D6000BB98B9 /* CompanyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88878CC425100D6000BB98B9 /* CompanyDetailView.swift */; };
 		88878CC72510141100BB98B9 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88878CC62510141100BB98B9 /* Product.swift */; };
 		88878CCA2510156B00BB98B9 /* ProductsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88878CC92510156B00BB98B9 /* ProductsListView.swift */; };
@@ -51,6 +52,7 @@
 		88664E7B250ED3B70028B9D2 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		886CCF8925128D2100319252 /* addToCartSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = addToCartSound.mp3; path = ../../../../../../Downloads/addToCartSound.mp3; sourceTree = "<group>"; };
 		886CCF8B2512954500319252 /* CartItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemView.swift; sourceTree = "<group>"; };
+		886CCF8D2512A47A00319252 /* NonEmptyCartAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonEmptyCartAlert.swift; sourceTree = "<group>"; };
 		88878CC425100D6000BB98B9 /* CompanyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailView.swift; sourceTree = "<group>"; };
 		88878CC62510141100BB98B9 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		88878CC92510156B00BB98B9 /* ProductsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListView.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				88334F6C251160B5006659C5 /* CartButton.swift */,
 				884D0E042512359D000FA2D8 /* CartView.swift */,
 				886CCF8B2512954500319252 /* CartItemView.swift */,
+				886CCF8D2512A47A00319252 /* NonEmptyCartAlert.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				88664E60250ED3450028B9D2 /* Sources */,
 				88664E61250ED3450028B9D2 /* Frameworks */,
 				88664E62250ED3450028B9D2 /* Resources */,
+				C5BBC0C4786DE84AFDF1007F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -313,6 +317,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C5BBC0C4786DE84AFDF1007F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Weed delivery/Pods-Weed delivery-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Weed delivery/Pods-Weed delivery-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Weed delivery/Pods-Weed delivery-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -338,6 +359,7 @@
 				88878CC525100D6000BB98B9 /* CompanyDetailView.swift in Sources */,
 				888FE8B6250FC30C00FD12B7 /* Company.swift in Sources */,
 				88878CCF25101BA200BB98B9 /* TabBarSpacer.swift in Sources */,
+				886CCF8E2512A47A00319252 /* NonEmptyCartAlert.swift in Sources */,
 				886CCF8C2512954500319252 /* CartItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
