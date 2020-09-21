@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "IMG_01.boc2013.anaheim.k_1_1_JB2UGG9_L4224624-1.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

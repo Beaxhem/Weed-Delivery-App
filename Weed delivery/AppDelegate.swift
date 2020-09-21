@@ -11,12 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var cart: [CartItem] = [
-        CartItem(id: 1, product: Product(id: 1, name: "Big Mac Menu", price: 100.0)),
-        CartItem(id: 2, product: Product(id: 2, name: "Big Mac Menu", price: 100.0), count: 2),
-        CartItem(id: 3, product: Product(id: 3, name: "Big Mac Menu", price: 100.0)),
-        CartItem(id: 4, product: Product(id: 4, name: "Big Mac Menu", price: 100.0))
-    ]
+    var cart: Cart = Cart(items: [])
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

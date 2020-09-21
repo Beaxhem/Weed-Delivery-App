@@ -22,14 +22,12 @@ struct CompanyRow: View {
                 Image(company.imageName)
                     .resizable()
                     .frame(height: 150)
+                    .background(Color.gray)
                     .cornerRadius(10)
-                    
                 
                 HStack {
                     Text(company.name)
                         .font(.headline)
-                    
-                    
                     
                     Group {
                         Image(systemName: "star.fill")
@@ -54,19 +52,15 @@ struct CompanyRow: View {
                             .fontWeight(.bold)
                     }
                 }
-                
-                    
             }
             .padding([.leading, .trailing])
             .padding(.top, 10)
-            
-                
         }
         .buttonStyle(PlainButtonStyle())
+        .onAppear(perform: getRating)
         .sheet(isPresented: $showModal) {
             CompanyDetailView(company: self.company)
         }
-        .onAppear(perform: getRating)
     }
     
     func getRating() {

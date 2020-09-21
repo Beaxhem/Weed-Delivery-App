@@ -13,9 +13,10 @@ struct CartButton: View {
     
     var body: some View {
         HStack {
-            Image("cart")
+            Image(systemName: "bag.fill")
                 .resizable()
                 .frame(width: 25, height: 25)
+                .foregroundColor(.white)
                 
             Text("Cart")
                 .foregroundColor(.white)
@@ -30,7 +31,7 @@ struct CartButton: View {
     func getSum() -> Float {
         var total: Float = 0
         
-        for item in cart {
+        for item in cart.items {
             total += item.product.price * Float(item.count)
         }
         

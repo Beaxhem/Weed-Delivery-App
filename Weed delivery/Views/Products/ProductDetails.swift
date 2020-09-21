@@ -80,17 +80,110 @@ struct ProductDetails: View {
     
     var body: some View {
         ProgressHUDView(isShowing: self.$isShowing) {
-            Button(action: {
-                self.addToCart()
-            }, label: {
-                Text("Add to cart")
-            })
+        VStack(alignment: .leading) {
+            HStack {
+                Spacer()
+                Image(systemName: "multiply")
+                    .resizable()
+                    .position(y: 22)
+                    .frame(width: 20, height: 20)
+                    .offset(x: -10)
+                    .onTapGesture {
+                        self.close()
+                    }
+                
+            }
+            .frame(height: 50)
+            ScrollView {
+                
+                
+                VStack(alignment: .leading) {
+                    Image(product.imageName)
+                        .resizable()
+                        .frame(height: 250)
+                    VStack(alignment: .leading) {
+                        Text(product.name)
+                            .font(.system(size: 30, weight: .bold))
+                            .padding(.bottom, 1)
+                        
+                        HStack {
+                            Image(systemName: "star.fill")
+                                .resizable()
+                                .frame(width: 15, height: 15)
+                                .foregroundColor(.yellow)
+                            Text(String(format: "%.1f", 4.7))
+                                .foregroundColor(.yellow)
+                                .font(.subheadline)
+                                .fontWeight(.bold)
+                            
+                            
+                        }
+                        Text("Description")
+                            .font(.headline)
+                            .padding([.bottom, .top])
+                        
+                        Text(product.description)
+                            .foregroundColor(.gray)
+                        Spacer()
+                    }.padding()
+                    Spacer()
+                }
+                
+                
+                Spacer()
+            }
+            HStack {
+                VStack(spacing: 0) {
+                    Text("Total: ")
+                        .font(.subheadline)
+                    Text(String(format: "%.2f", product.price) + "$")
+                        .font(.system(size: 22, weight: .bold))
+                }
+                Spacer()
+                Button(action: {
+                    self.addToCart()
+                }, label: {
+                    Text("Buy now")
+                        .scaledToFill()
+                })
+                .padding()
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.blue, lineWidth: 3)
+                )
+                
+                .foregroundColor(.blue)
+                .font(.headline)
+                
+                
+                
+                
+                
+                    Button(action: {
+                        self.addToCart()
+                    }, label: {
+                        Text("Add to cart")
+                            .scaledToFill()
+
+                    })
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .font(.headline)
+                    .cornerRadius(10)
+                }
             .padding()
-            .background(Color.blue)
-            .foregroundColor(.white)
-            .font(.headline)
-            .cornerRadius(10)
+                
+            }
+            
+            
         }
+        
+        
+    }
+    
+    func close() {
+        self.presentationMode.wrappedValue.dismiss()
         
     }
     
@@ -100,8 +193,8 @@ struct ProductDetails: View {
         
         DispatchQueue.main.async {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let cartItem = CartItem(id: 1, product: self.product)
-            appDelegate.cart.append(cartItem)
+            
+            appDelegate.cart.addToCart(product: product)
             
             self.isShowing.toggle()
             
@@ -115,7 +208,7 @@ struct ProductDetails: View {
         }
         
         group.notify(queue: .main) {
-            self.presentationMode.wrappedValue.dismiss()
+            close()
         }
     }
     
@@ -123,17 +216,17 @@ struct ProductDetails: View {
         
         
         guard let url = Bundle.main.url(forResource: "addToCartSound", withExtension: "mp3") else { return }
-
+        
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
-
+            
             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
-
+            
             guard let player = player else { return }
-
+            
             player.play()
-
+            
         } catch let error {
             print(error.localizedDescription)
         }
@@ -142,6 +235,6 @@ struct ProductDetails: View {
 
 struct ProductDetails_Previews: PreviewProvider {
     static var previews: some View {
-        ProductDetails(product: Product(id: 1, name: "McDonalds", price: 99.7))
+        ProductDetails(product: Product(id: 1, name: "McDonalds", price: 99.7, category: "Menu"))
     }
 }

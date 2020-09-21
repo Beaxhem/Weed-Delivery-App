@@ -20,15 +20,12 @@ struct CompanyDetailView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                VStack(alignment: .trailing) {
-                    Image("close")
-                        .resizable()
-                        
-                        .frame(width: 30, height: 30)
-                        .offset(x: -20, y: 20)
+                VStack(alignment: .leading) {
+                    CloseBar()
                         .onTapGesture {
                             self.close()
                         }
+                    
                     
                     ScrollView {
                         VStack(alignment: .leading) {
@@ -36,6 +33,7 @@ struct CompanyDetailView: View {
                             Image(self.company.imageName)
                                 .resizable()
                                 .frame(height: 200)
+                                .background(Color.white)
                                 
                             
                             Text(self.company.name)
@@ -45,7 +43,7 @@ struct CompanyDetailView: View {
                             Divider()
                             
                             Text("Products")
-                                .font(.system(size: 20))
+                                .font(.system(size: 30, weight: .bold))
                                 .padding(10)
                             if self.company.products != nil {
                                 ProductsListView(products: self.company.products)
@@ -53,10 +51,10 @@ struct CompanyDetailView: View {
                                 Text("No products available")
                             }
                         }
-                        .offset(y: 20)
+                        
                         Spacer(minLength: 20)
                     }
-                    .edgesIgnoringSafeArea(.top)
+                    
                     .navigationBarTitle("", displayMode: .inline)
                     .navigationBarHidden(true)
                     .frame(height: geometry.size.height - geometry.safeAreaInsets.bottom)
@@ -68,7 +66,8 @@ struct CompanyDetailView: View {
                             }), secondaryButton: .default(Text("Leave here")
                         ))
                     }
-                    
+                    Spacer()
+                        
                 }
                 
                 CartButton()
@@ -91,7 +90,7 @@ struct CompanyDetailView: View {
     }
     
     func leaveView() {
-        appDelegate.cart = [] 
+        appDelegate.cart.items = []
         self.presentationMode.wrappedValue.dismiss()
     }
     
@@ -99,7 +98,7 @@ struct CompanyDetailView: View {
         
         let cart = appDelegate.cart
 
-        if cart.count > 0 {
+        if cart.items.count > 0 {
             self.alertPresented = true
         } else {
             self.presentationMode.wrappedValue.dismiss()
@@ -115,10 +114,10 @@ struct CompanyDetailView_Previews: PreviewProvider {
             name: "Test company",
             imageName: "mcdonalds",
             products:
-                [Product(id: 1, name: "Big Mac Menu", price: 100.0),
-                Product(id: 1, name: "Big Mac Menu", price: 100.0),
-                Product(id: 1, name: "Big Mac Menu", price: 100.0),
-                Product(id: 1, name: "Big Mac Menu", price: 100.0)]
+                [Product(id: 1, name: "Big Mac Menu", price: 100.0, category: "Menu"),
+                Product(id: 1, name: "Big Mac Menu", price: 100.0, category: "Menu"),
+                Product(id: 1, name: "Big Mac Menu", price: 100.0, category: "Menu"),
+                Product(id: 1, name: "Big Mac Menu", price: 100.0, category: "Menu")]
         ))
     }
 }

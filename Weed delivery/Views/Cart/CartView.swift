@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct CartView: View {
-    @State var cart: [CartItem] = []
+    @State var cart: Cart = (UIApplication.shared.delegate as! AppDelegate).cart
+    @State var isPresented = false
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -17,33 +18,59 @@ struct CartView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack(alignment: .trailing) {
-                Image("close")
-                    .resizable()
+            ZStack {
+                VStack(alignment: .trailing) {
+                    CloseBar()
+                        .onTapGesture {
+                            self.close()
+                        }
                     
-                    .frame(width: 30, height: 30)
-                    .offset(x: -20, y: 20)
-                    .onTapGesture {
-                       self.presentationMode.wrappedValue.dismiss()
+                           
+                    if self.cart.items.count > 0 {
+                        List {
+                            ForEach(self.cart.items)  { item in
+                                CartItemView(item: item)
+                            }.onDelete(perform: self.deleteItems)
+                            
+                        }
+                        .frame(width: geometry.size.width)
+                        .offset(y: 20)
+                    } else {
+                        Text("No products in cart yet.")
                     }
                     
-                       
-                
-                List {
-                    ForEach(self.cart)  { item in
-                        CartItemView(item: item)
-                    }.onDelete(perform: self.deleteItems)
+                    TabBarSpacer()
+                    
                 }
                 
-            
-                .frame(width: geometry.size.width)
-                .offset(y: 20)
-                Spacer(minLength: 20)
+                .onAppear(perform: self.getCart)
                 
+                HStack {
+                   Text("Proceed to checkout")
+                }
+                    .frame(width: geometry.size.width - 65)
+                    .foregroundColor(.white)
+                    .font(.headline)
+                    .onTapGesture {
+                        self.isPresented = true
+                    }
+                    .padding(25)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+                    .shadow(radius: 5)
+                    .position( x: geometry.size.width / 2, y: geometry.size.height - 45)
+                    .fullScreenCover(isPresented: $isPresented, content: {
+                        CheckoutView()
+                    })
+                    
+                    
             }
             
-            .onAppear(perform: self.getCart)
         }
+    }
+    
+    func close() {
+        self.presentationMode.wrappedValue.dismiss()
     }
     
     func getCart() {
@@ -55,7 +82,6 @@ struct CartView: View {
 
     func deleteItems(at offsets: IndexSet) {
         self.cart.remove(atOffsets: offsets)
-        
         appDelegate.cart = cart
         
     
@@ -64,6 +90,6 @@ struct CartView: View {
 
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
-        CartView()
+        CartView(cart: Cart(items: []))
     }
 }
