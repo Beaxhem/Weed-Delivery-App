@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct CartButton: View {
-    let cart = (UIApplication.shared.delegate as! AppDelegate).cart
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    @State var sum: Float = 0.0
     
     var body: some View {
         HStack {
@@ -23,19 +24,14 @@ struct CartButton: View {
                 .font(.headline)
             Spacer()
             
-            Text(String(getSum()) + "$")
+            Text(String(sum) + "$")
                 .foregroundColor(.white)
         }
+        .onAppear(perform: getSum)
     }
     
-    func getSum() -> Float {
-        var total: Float = 0
-        
-        for item in cart.items {
-            total += item.product.price * Float(item.count)
-        }
-        
-        return total
+    func getSum() {
+        sum = appDelegate.cart.getSum()
     }
 }
 

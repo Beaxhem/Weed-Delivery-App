@@ -76,95 +76,95 @@ struct ProductDetails: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    @State var isShowing = false
+    @State var isHUDShowing = false
+    @State var isCheckOutViewShowing = false
     
     var body: some View {
-        ProgressHUDView(isShowing: self.$isShowing) {
-        VStack(alignment: .leading) {
-            HStack {
-                Spacer()
-                Image(systemName: "multiply")
-                    .resizable()
-                    .position(y: 22)
-                    .frame(width: 20, height: 20)
-                    .offset(x: -10)
-                    .onTapGesture {
-                        self.close()
-                    }
-                
-            }
-            .frame(height: 50)
-            ScrollView {
-                
-                
-                VStack(alignment: .leading) {
-                    Image(product.imageName)
+        ProgressHUDView(isShowing: self.$isHUDShowing) {
+            VStack(alignment: .leading) {
+                HStack {
+                    Spacer()
+                    Image(systemName: "multiply")
                         .resizable()
-                        .frame(height: 250)
-                    VStack(alignment: .leading) {
-                        Text(product.name)
-                            .font(.system(size: 30, weight: .bold))
-                            .padding(.bottom, 1)
-                        
-                        HStack {
-                            Image(systemName: "star.fill")
-                                .resizable()
-                                .frame(width: 15, height: 15)
-                                .foregroundColor(.yellow)
-                            Text(String(format: "%.1f", 4.7))
-                                .foregroundColor(.yellow)
-                                .font(.subheadline)
-                                .fontWeight(.bold)
-                            
-                            
+                        .position(y: 22)
+                        .frame(width: 20, height: 20)
+                        .offset(x: -10)
+                        .onTapGesture {
+                            self.close()
                         }
-                        Text("Description")
-                            .font(.headline)
-                            .padding([.bottom, .top])
-                        
-                        Text(product.description)
-                            .foregroundColor(.gray)
+                    
+                }
+                .frame(height: 50)
+                ScrollView {
+                    
+                    
+                    VStack(alignment: .leading) {
+                        Image(product.imageName)
+                            .resizable()
+                            .frame(height: 250)
+                        VStack(alignment: .leading) {
+                            Text(product.name)
+                                .font(.system(size: 30, weight: .bold))
+                                .padding(.bottom, 1)
+                            
+                            HStack {
+                                Image(systemName: "star.fill")
+                                    .resizable()
+                                    .frame(width: 15, height: 15)
+                                    .foregroundColor(.yellow)
+                                Text(String(format: "%.1f", 4.7))
+                                    .foregroundColor(.yellow)
+                                    .font(.subheadline)
+                                    .fontWeight(.bold)
+                                
+                                
+                            }
+                            Text("Description")
+                                .font(.headline)
+                                .padding([.bottom, .top])
+                            
+                            Text(product.description)
+                                .foregroundColor(.gray)
+                            Spacer()
+                        }.padding()
                         Spacer()
-                    }.padding()
+                    }
+                    
+                    
                     Spacer()
                 }
-                
-                
-                Spacer()
-            }
-            HStack {
-                VStack(spacing: 0) {
-                    Text("Total: ")
-                        .font(.subheadline)
-                    Text(String(format: "%.2f", product.price) + "$")
-                        .font(.system(size: 22, weight: .bold))
-                }
-                Spacer()
-                Button(action: {
-                    self.addToCart()
-                }, label: {
-                    Text("Buy now")
-                        .scaledToFill()
-                })
-                .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.blue, lineWidth: 3)
-                )
-                
-                .foregroundColor(.blue)
-                .font(.headline)
-                
-                
-                
-                
-                
+                HStack {
+                    VStack(spacing: 0) {
+                        Text("Total: ")
+                            .font(.subheadline)
+                        Text(String(format: "%.2f", product.price) + "$")
+                            .font(.system(size: 22, weight: .bold))
+                    }
+                    Spacer()
+                    
+                    Button(action: {
+                        self.isCheckOutViewShowing.toggle()
+                    }) {
+                        Text("Buy now")
+                            .scaledToFill()
+                            .padding()
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.blue, lineWidth: 3)
+                            )
+                            
+                            .foregroundColor(.blue)
+                            .font(.headline)
+                            .fullScreenCover(isPresented: self.$isCheckOutViewShowing, content: {
+                                CheckoutView(product: self.product)
+                            })
+                    }
+                    
                     Button(action: {
                         self.addToCart()
                     }, label: {
                         Text("Add to cart")
                             .scaledToFill()
-
                     })
                     .padding()
                     .background(Color.blue)
@@ -172,20 +172,18 @@ struct ProductDetails: View {
                     .font(.headline)
                     .cornerRadius(10)
                 }
-            .padding()
+                .padding()
                 
             }
-            
-            
         }
-        
-        
     }
     
     func close() {
         self.presentationMode.wrappedValue.dismiss()
         
     }
+    
+    
     
     func addToCart() {
         let group = DispatchGroup()
@@ -196,13 +194,13 @@ struct ProductDetails: View {
             
             appDelegate.cart.addToCart(product: product)
             
-            self.isShowing.toggle()
+            self.isHUDShowing.toggle()
             
             self.playSound()
             
             
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000)) {
-                self.isShowing.toggle()
+                self.isHUDShowing.toggle()
                 group.leave()
             }
         }

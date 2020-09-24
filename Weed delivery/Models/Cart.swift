@@ -32,4 +32,18 @@ class Cart {
     func remove(atOffsets offset: IndexSet) {
         self.items.remove(atOffsets: offset)
     }
+    
+    func getSum() -> Float {
+        if self.items.count > 0 {
+            var total: Float = 0.0
+            
+            for item in self.items {
+                total += Float(item.count) * item.product.price
+            }
+            
+            return total
+        } else {
+            return 0.0
+        }
+    }
 }

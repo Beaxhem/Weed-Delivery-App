@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ProductView: View {
+struct ProductCellView: View {
     var product: Product?
     
     @Environment(\.colorScheme) var colorScheme
@@ -17,10 +17,7 @@ struct ProductView: View {
     
     var body: some View {
         if product != nil {
-            
             VStack(alignment: .leading) {
-                
-                
                 GeometryReader { geo in
                     Image(product!.imageName)
                         .resizable()
@@ -34,9 +31,6 @@ struct ProductView: View {
                         }
                         
                 }.scaledToFill()
-                
-                
-                
                 
                 HStack {
                     Text(self.product!.name)
@@ -78,6 +72,6 @@ struct ProductView: View {
 
 struct ProductView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductView(product: Product(id: 1, name: "Big Mac Menu", price: 100.0, category: "Menu"))
+        ProductCellView(product: Product(id: 1, name: "Big Mac Menu", price: 100.0, category: "Menu"))
     }
 }

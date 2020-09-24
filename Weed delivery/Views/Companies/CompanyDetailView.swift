@@ -14,6 +14,7 @@ struct CompanyDetailView: View {
     
     @State var productDetailsPresented = false
     @State var alertPresented = false
+    @State var isOpened = false
     
     var company: Company
     
@@ -26,19 +27,57 @@ struct CompanyDetailView: View {
                             self.close()
                         }
                     
-                    
                     ScrollView {
-                        VStack(alignment: .leading) {
+                        VStack(alignment: .leading, spacing: 5) {
                             
                             Image(self.company.imageName)
                                 .resizable()
                                 .frame(height: 200)
                                 .background(Color.white)
                                 
+                            HStack {
+                                Text(self.company.name)
+                                    .font(.title)
+                                    .padding(10)
+                                    .padding(.bottom, 0)
+                                
+                                RatingView(rating: 4.5)
+                                    .font(.title)
+                            }
                             
-                            Text(self.company.name)
-                                .font(.title)
-                            .padding(10)
+                            
+                            Text(self.company.description)
+                                .padding(10)
+                                .padding(.top, 0)
+                                .frame(maxHeight: self.isOpened ? .infinity : 150)
+                            
+                            Button(action: {
+                                self.isOpened.toggle()
+                            }) {
+                                Text(self.isOpened ? "Hide details" : "View details")
+                                    .underline()
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            .font(.footnote)
+                            .padding(.leading, 10)
+                            
+                            
+                            Divider()
+                            
+                            HStack {
+                                VStack {
+                                    Image(systemName: "map")
+                                    Link("View on map", destination: URL(string: "https://maps.google.com/?daddr=" + self.company.name.lowercased())!)
+                                        .lineLimit(0)
+                                }.frame(minWidth: 0, maxWidth: .infinity)
+                                
+                                VStack {
+                                    Image(systemName: "speedometer")
+                                    Text("Fast")
+                                }
+                                .frame(minWidth: 0, maxWidth: .infinity)
+                            }
+                            .padding()
                             
                             Divider()
                             
@@ -57,7 +96,7 @@ struct CompanyDetailView: View {
                     
                     .navigationBarTitle("", displayMode: .inline)
                     .navigationBarHidden(true)
-                    .frame(height: geometry.size.height - geometry.safeAreaInsets.bottom)
+                    .frame(height: geometry.size.height - 100)
                     .alert(isPresented: self.$alertPresented) {
                         Alert(
                             title: Text("Are you sure you want to leave?"),

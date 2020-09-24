@@ -66,7 +66,7 @@ struct CompanyRow: View {
     func getRating() {
         let id = company.id
         
-        DatabaseManager.shared.getRating(by: id) {res in
+        DatabaseManager.shared.getCompanyRating(by: id) {res in
             
             switch res {
             case .success(let r):

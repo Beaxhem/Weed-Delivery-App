@@ -11,6 +11,7 @@ import Foundation
 class Company: Identifiable {
     var id: Int
     var name: String
+    var description: String
     var imageName: String
     var products: [Product]?
 
@@ -19,5 +20,14 @@ class Company: Identifiable {
         self.name = name
         self.imageName = imageName
         self.products = products
+        self.description = ""
+    }
+    
+    init(id: Int, name: String, description: String, imageName: String, products: [Product]?) {
+        self.id = id
+        self.name = name
+        self.imageName = imageName
+        self.products = products
+        self.description = description
     }
 }

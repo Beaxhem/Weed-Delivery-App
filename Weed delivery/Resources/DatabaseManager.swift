@@ -14,7 +14,7 @@ class DatabaseManager: ObservableObject {
     static let shared = DatabaseManager()
     
     func getAllCompanies() {
-        sleep(2)
+        
         let description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. \n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         
         let McDonaldsProducts = [
@@ -36,14 +36,14 @@ class DatabaseManager: ObservableObject {
         ]
         
         companies = [
-            Company(id: 0, name: "Mafia", imageName: "mafia", products: mafiaProducts),
+            Company(id: 0, name: "Mafia", description: description, imageName: "mafia", products: mafiaProducts),
             Company(id: 1, name: "McDonalds", imageName: "mcdonalds", products: McDonaldsProducts),
             Company(id: 2, name: "KFC", imageName: "kfc", products: nil),
             Company(id: 4, name: "In-N-Out", imageName: "innout", products: nil)
         ]
     }
     
-    func getRating(by id: Int, completion: @escaping (Result<Float, Error>) -> Void) {
+    func getCompanyRating(by id: Int, completion: @escaping (Result<Float, Error>) -> Void) {
         let ratings = [
             0: [
                 Rating(id: 1, rating: 5.0),
